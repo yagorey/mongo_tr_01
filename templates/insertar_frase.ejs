@@ -1,0 +1,22 @@
+<%- include('base_header'); -%>
+<body>
+<link href="./public/style_insertar.css">
+<h1>Bienvenidos a la frase aleatoria</h1>
+<a href="/insertar">Insertar Frases</a>
+
+<div class="container">
+    <form class="card" action="." method="POST">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Author:</label>
+            <input type="text" name="author" class="form-control" id="exampleFormControlInput1" placeholder="M.Rajoy">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Frase:</label>
+            <textarea name="frase" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-link">Guardar</button>
+    </form>
+</div>
+</body>
+<%- include('base_footer'); -%>
