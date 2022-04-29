@@ -7,13 +7,15 @@ let mostrar_frase = (req, res) => {
     console.log('Params: ', params)
     console.log('Body: ', body)
 
+    const frases = await model.find({})
+    // dame una frase aleatoria
+    const amount = await model.find({}).count()
+
+    const random = Math.floor(Math.random() * amount)
+    const frase = await model.findOne({}).skip(random)
 
     // Renderizar la pagina de frase aleatoria
-    let queries = {
-        frase: 'fasfasf asf asf asf asf asf asf asf as fas fas',
-        author: 'M.R.R. Martin'
-    }
-   ejs.renderFile('./templates/mostrar_frase.ejs', queries, {}, (err, str) => {
+   ejs.renderFile('./templates/mostrar_frase.ejs', frase, {}, (err, str) => {
         if (err) {
          console.log(err)
         }
@@ -21,7 +23,14 @@ let mostrar_frase = (req, res) => {
        })
 
 }
-let insertar_frase = (req, res) => {
+let insertar_frase = async (request, response) => {
+    // const {query, params, body} = req
+    const query = req.query
+    const params = req.params
+    const body = req.body
+    console.log('Query: ', query)
+    console.log('Params: ', params)
+    console.log('Body: ', body)
 
     let callback = (error, str) => {
         if (error) {
@@ -40,14 +49,13 @@ let insertar_frase = (req, res) => {
     console.log('Body: ', body)
 
     // Esto es lo que hay que guardar en la base de datos
-    const author = body.author
-    const frase = body.frase
+    const author = body.author || 'Anonimo'
+    const frase = body.frase || 'No hay frase'
 
     // Guardar en la base de datos
     let modelo = new model()
     modelo.author = author
     modelo.frase = frase
-    modelo = await modelo.save()
 
     modelo.save().then((data)=>{
         console.log('Datos guardados')
