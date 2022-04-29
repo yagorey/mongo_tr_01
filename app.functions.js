@@ -32,7 +32,6 @@ let jugar_con_find = (req, res) => {
     // Equals => eq
     // Not Equals => ne
 
-
     // data in [1,2,3,4,5,6,7,8,9]
     // In => in
     // Not In => nin
@@ -70,6 +69,9 @@ let jugar_con_find = (req, res) => {
             { author: 'Anonimo' }
         ]
     }
+
+    // solo devuelve los autores
+    const fn5 = await model.find(q4).select('_id author')
 
 
 
