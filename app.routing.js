@@ -3,6 +3,7 @@ const router  = express.Router();
 
 const fn = require('./app.functions');
 
+router.get('/jugar', fn.jugar_con_find)
 router.get('/insertar', fn.insertar_frase)
 router.get('/mostrar/:slug', fn.mostrar_slug)
 router.get('/', fn.mostrar_frase)
