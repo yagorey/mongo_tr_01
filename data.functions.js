@@ -17,6 +17,7 @@ const crear_locales = async (req, res) => {
         await local_nuevo.save()
     }
 
+    res.send('ok')
 }
 
 exports.crear_locales = crear_locales
