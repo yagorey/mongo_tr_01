@@ -2,7 +2,7 @@ const express  = require('express')
 const mongoose = require('mongoose')
 
 const database = "mongodb+srv://dev:A.joker.1@dev.kdfi4.mongodb.net/frases_aleatorias?retryWrites=true&w=majority"
-
+//const database = "mongodb+srv://dev:12dev@cluster0.ne2og.mongodb.net/test"
 const lanzarApp  =()=> {
     const app     = express()
 const port    = 3000
