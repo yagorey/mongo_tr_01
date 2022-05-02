@@ -21,3 +21,27 @@ const crear_locales = async (req, res) => {
 }
 
 exports.crear_locales = crear_locales
+
+const mBebidas = require('./models/bebidas.model')
+
+const crear_bebidas = async (req, res) => {
+
+    const bebidas = [
+        { nombre: 'alcohol1', tipo: 'cerveza' },
+        { nombre: 'alcohol2', tipo: 'cachaça' },
+        { nombre: 'alcohol3', tipo: 'absenta' },
+        { nombre: 'alcohol4', tipo: 'ron' },
+        { nombre: 'alcohol5', tipo: 'tequila' },
+        { nombre: 'alcohol6', tipo: 'vodka' },
+        { nombre: 'alcohol7', tipo: 'ginebra' }
+    ]
+    for (let idx = 0; idx < bebidas.length; idx++) {
+        const bebida = bebidas[idx]
+        const bebida_nuevo = new mBebidass(bebida)
+        await bebida_nuevo.save()
+    }
+
+    res.send('ok')
+}
+//const database = "mongodb+srv://dev:12dev@cluster0.ne2og.mongodb.net/test"
+exports.crear_bebidas = crear_bebidas
