@@ -1,7 +1,7 @@
 const ejs   = require('ejs')
 const model = require('./models/frase.model')
 
-let jugar_con_find = (req, res) => {
+let jugar_con_find = async (req, res) => {
     const {query, params, body} = req
     console.log('Query: ', query)
     console.log('Params: ', params)
@@ -77,7 +77,7 @@ let jugar_con_find = (req, res) => {
 
 }
 
-let mostrar_frase = (req, res) => {
+let mostrar_frase = async (req, res) => {
     const {query, params, body} = req
     console.log('Query: ', query)
     console.log('Params: ', params)
@@ -161,5 +161,5 @@ exports.mostrar_slug   = mostrar_slug
 exports.recoge_datos   = recoge_datos
 exports.insertar_frase = insertar_frase
 exports.mostrar_frase  = mostrar_frase
-exprots.jugar_con_find = jugar_con_find
+exports.jugar_con_find = jugar_con_find
 
