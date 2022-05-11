@@ -1,4 +1,5 @@
 const mLocales = require('./models/locales.model')
+const mBebidas = require('./models/bebida.model')
 
 const crear_locales = async (req, res) => {
 
@@ -20,9 +21,7 @@ const crear_locales = async (req, res) => {
     res.send('ok')
 }
 
-exports.crear_locales = crear_locales
 
-const mBebidas = require('./models/bebidas.model')
 
 const crear_bebidas = async (req, res) => {
 
@@ -37,11 +36,12 @@ const crear_bebidas = async (req, res) => {
     ]
     for (let idx = 0; idx < bebidas.length; idx++) {
         const bebida = bebidas[idx]
-        const bebida_nuevo = new mBebidass(bebida)
+        const bebida_nuevo = new mBebidas(bebida)
         await bebida_nuevo.save()
     }
 
     res.send('ok')
 }
-//const database = "mongodb+srv://dev:12dev@cluster0.ne2og.mongodb.net/test"
+
+exports.crear_locales = crear_locales
 exports.crear_bebidas = crear_bebidas
